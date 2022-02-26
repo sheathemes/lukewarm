@@ -1,0 +1,631 @@
+<!--
+
+╭━━━┳╮╱╭┳━━━┳━━━┳━━━━┳╮╱╭┳━━━┳━╮╭━┳━━━┳━━━╮
+┃╭━╮┃┃╱┃┃╭━━┫╭━╮┃╭╮╭╮┃┃╱┃┃╭━━┫┃╰╯┃┃╭━━┫╭━╮┃
+┃╰━━┫╰━╯┃╰━━┫┃╱┃┣╯┃┃╰┫╰━╯┃╰━━┫╭╮╭╮┃╰━━┫╰━━╮
+╰━━╮┃╭━╮┃╭━━┫╰━╯┃╱┃┃╱┃╭━╮┃╭━━┫┃┃┃┃┃╭━━┻━━╮┃
+┃╰━╯┃┃╱┃┃╰━━┫╭━╮┃╱┃┃╱┃┃╱┃┃╰━━┫┃┃┃┃┃╰━━┫╰━╯┃
+╰━━━┻╯╱╰┻━━━┻╯╱╰╯╱╰╯╱╰╯╱╰┻━━━┻╯╰╯╰┻━━━┻━━━╯
+
+Page ⎾LUKEWARM⏌ by sheathemes @ tumblr
+
+- TERMS -
+
+I. Do NOT remove my credit from the index page. Keep it exactly where it is
+II. Do NOT take any part of my code to use for your personal designs
+III. Do NOT claim any part of my code as your own
+IV. NO redistrubuting of any of my code
+V. Editing is allowed. As long as it's NOT being claimed as your own
+ 
+CREDITS
+ 
+> Tippy.js: https://atomiks.github.io/tippyjs/
+
+> Smoothscroll script: https://cdnjs.com/libraries/smoothscroll
+
+> Icons: https://phosphoricons.com/
+ 
+!-->
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ 
+<head>
+
+<!------------Smooth Scroll Script------------>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
+<!------------Smooth Scroll Script------------>
+ 
+<!--------------Custom Fonts-------------->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,500&family=Mukta:wght@400;500;700&display=swap" rel="stylesheet">
+<!--------------Custom Fonts-------------->
+ 
+<!----------------Homelinks Icons---------------->
+<script src="https://unpkg.com/phosphor-icons"></script>
+<!----------------Homelinks Icons---------------->
+ 
+    <title>{Title}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="altertnate" type="application/rss+xml" href="{RSS}">
+    <meta http-equiv="x-dns-prefetch-control" content="off"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+
+/*------
+ 
+CUSTOMIZATION OPTIONS HERE. HERE YOU CAN GE EVERYTHING FROM THE COLORS TO THE OVERALL FONT SIZE TO YOUR LIKING!
+ 
+------ */
+
+:root {
+    /*------ Change the font size here------ */
+    --main-font-size: 14px;
+    
+    /*------ Change the colors here------ */
+    --accent: #fcca85;
+    --accented-text: #ffffff;
+    --main-background: #fbfbfb;
+    --text: #888888;
+    --bold: #280f0d;
+    --italic: #000000;
+    --main-links: #00000;
+    --link-hover: #B08E72;
+    --scrollbar: #fcca85;
+    --text-selection-background: #fcca85;
+    --text-selection: #000000;
+    --tooltip: #000000;
+    --tooltip-background: #fcca85;
+    --about-background: #ffffff;
+    --post-borders: #f6f6f6;
+    
+    /*----------
+    Percentage bars here. You edit here. Make sure to use the percentage. It's required in order for it to work
+    ----------*/
+    --skill-percentage-one: 25%;
+    --skill-percentage-two: 65%;
+    --skill-percentage-three: 40%;
+}
+ 
+/*----------FADE-IN ANIMATION----------*/
+ 
+@keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+ 
+@-moz-keyframes fadein { /* Firefox */
+    from {opacity:0;}
+    to {opacity:1;}
+}
+ 
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {opacity:0;}
+    to {opacity:1;}
+}
+ 
+@-o-keyframes fadein { /* Opera */
+    from {opacity:0;}
+    to {opacity: 1;}
+}
+ 
+/*----------TUMBLR CONTROLS----------*/
+ 
+iframe#tumblr_controls, .iframe-controls--desktop {
+    right: 10px !important;
+    top: 25px !important;
+    position: fixed !important;
+    z-index: 99999999999999999999 !important;
+    -webkit-filter: invert(100%);
+    -moz-filter: invert(100%);
+    -o-filter: invert(100%);
+    -webkit-transition: opacity 0.4s linear;opacity: 0.4;
+    -webkit-transition: all 0.8s ease-out;
+    -moz-transition: all 0.8s ease-out;
+    transition: all 0.8s ease-out;
+    display: none;
+}
+ 
+/*----------SCROLLBAR----------*/
+ 
+::-webkit-scrollbar {
+    width: 12px;
+    height: 6px;
+}
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar);
+    border-radius: 20px;
+    border: 2px solid var(--about-background);
+}
+ 
+::-webkit-scrollbar-track {
+    background: var(--post-borders);
+    border: 8px solid var(--post-borders);
+    border-radius: 20px;
+}
+ 
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+ 
+/*----------TOOLTIPS----------*/
+ 
+.tippy-tooltip.custom-theme {
+    background-color: var(--tooltip-background);
+    color: var(--tooltip); 
+    text-align:center;
+    font-weight: 700;
+}
+ 
+.tippy-tooltip.custom-theme .tippy-svg-arrow {
+  fill: var(--tooltip-background);
+}
+ 
+/*----------TEXT SELECTION----------*/
+::selection {
+    background: var(--text-selection-background);
+    color: var(--text-selection);
+}
+ 
+::-moz-selection {
+    background: var(--text-selection-background);
+    color: var(--text-selection);
+}
+ 
+::-webkit-selection {
+    background: var(--text-selection-background);
+    color: var(--text-selection);
+}
+ 
+/*----------THEME BASICS----------*/
+ 
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--main-font-color);
+    font-family: 'Mukta', sans-serif;
+    font-weight: 400;
+    line-height: 180%;
+    font-size: var(--main-font-size);
+    background: var(--main-background) url("") center; /*Add a background image between the quotations*/
+    background-attachment: fixed;
+    background-repeat: repeat;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    animation: fadein 2.5s;
+    -moz-animation: fadein 2.5s; 
+    -webkit-animation: fadein 2.5s;
+    -o-animation: fadein  2.5s;
+}
+ 
+b,strong {
+    color:var(--bold);
+    font-weight: 700;
+}
+ 
+i,em {
+    color:var(--italic);
+}
+ 
+small,sub,sup {
+    font-size: calc(var(--main-font-size) - 0.5px);
+}
+ 
+h1,h2,h3 {
+    font-weight: 700;
+    font-size: 1.3em;
+    color: var(--bold);
+}
+ 
+h4,h5,h6 {
+    font-weight: 700;
+    font-size: 1.2em;
+    color: var(--bold);
+}
+
+a {
+    color: var(--main-links);
+    text-decoration:none;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+ 
+a:hover {
+    color: var(--link-hover);
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+/*----------MAIN CONTAINER----------*/
+
+.about-container {
+    width: 980px;
+    height: 670px;
+    display: flex;
+    padding: 40px;
+    background-color: var(--about-background);
+}
+
+/*----------ABOUT THE BLOGGER SECTION----------*/
+
+.about-section {
+    width: 630px;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.about-title {
+    font-size: 1.6em;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/*----------SKILLS / STATS----------*/
+
+.skills-content {
+    margin-top: 40px;
+}
+
+.skills-content p {
+    color: var(--main-links);
+    font-weight: 700;
+}
+ 
+.skill-cont, .image-content {
+    margin-top: 30px;
+} 
+ 
+.skill {
+    background-color: var(--post-borders);
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+ 
+.skill-set {
+    background-color: var(--accent);
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    transition: 0.6s;
+}
+
+/*----------IMAGE GALLERY----------*/
+
+.image-section img {
+    width: 100px;
+    height: 100px;
+}
+
+.image-section {
+    margin-top: 40px;
+    display: grid;
+    justify-content: center;    
+    gap: 10px;
+    grid-template-columns: repeat(4, 100px);
+}
+
+.image-one {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.image-two {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.image-five {
+    grid-column: 3 / 5;
+    grid-row: 1 / 3;
+}
+
+.image-five img {
+    width: 210px;
+    height: 210px;
+}
+
+.image-six {
+    grid-column: 1 / 3;
+    grid-row: 3 / 5;
+}
+
+.image-six img {
+    width: 210px;
+    height: 210px;
+}
+
+/*----------SIDEBAR----------*/
+
+#about-sidebar {
+    width: 350px;
+}
+
+.image-cont {
+    width: 350px;
+    height: 390px;
+}
+
+.image-cont img {
+    width: 100%;
+    height: auto;
+}
+
+.blogger-info {
+    margin: 0;
+    padding: 20px 0 0;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+.blogger-info b {
+    border: 1px solid var(--post-borders);
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.blogger-info li {
+    margin: 20px 0;
+}
+
+/*----------NAVIGATION----------*/
+
+.nav-bar {
+    padding-left: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nav-portrait img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.morelinks a {
+    display: block;
+    margin: 50px 0;
+}
+
+.morelinks a:last-child {
+    margin-bottom: 0;
+} 
+
+.morelinks i {
+    font-size: 25px;
+}
+
+/*----------THEME CREDIT/DO NOT REMOVE!!!---------*/
+ 
+#bottom {
+    bottom: 40px;
+    position: fixed;
+    right: 40px;
+    z-index: 99;
+    display: flex;
+}
+ 
+.ph-copyright {
+    padding: 3px;
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+    background-color: var(--accent);
+    color: var(--accented-text);
+    border-radius: 5px;
+    margin: 0 2px;
+}
+
+</style>
+
+ 
+</head>
+
+<body>
+
+<section class="about-container">
+    <aside id="about-sidebar">
+        <div class="image-cont">
+            <!------SIDEBAR IMAGE ------>
+            <img src="https://static.tumblr.com/uh2chis/yWSr7kni3/jessica-felicio-qs9zx5uns14-unsplash.png"> 
+            <!------SIDEBAR IMAGE ------>
+        </div>
+        <ul class="blogger-info">
+            <li><b>Name</b> name here</li> <!------NAME HERE------>
+            <li><b>Pronouns</b> pronouns here</li> <!------PRONOUNS HERE------>
+            <li><b>Age</b> age here</li> <!------AGE HERE------>
+            <li><b>location</b> location here</li> <!------LOCATION HERE------>
+            <li><b>Occupation</b> occupation here</li> <!------OCCUPATION HERE------>
+        </ul>
+    </aside>
+    <article class="about-section">
+            <!----------------ABOUT ME SECTION START---------------->
+        <section class="about-content"> 
+            <div class="about-title">About the blogger</div> <!------ABOUT TITLEE------>
+            <div class="about-bio">
+            
+            <!------IF YOU WANT TO ADD ANOTHER PARAGRAPH, JUST COPY THIS CODE:
+            
+            <p>this is where you write your paragraph</p>
+            
+            and paste it below.
+            
+            ------>
+<p>
+<!------EDIT ABOUT ME BELOW------>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed arcu sapien. Vestibulum ornare, lectus et pulvinar semper, odio nisl pharetra dui, sit amet feugiat leo nibh et libero. Nulla id nibh tincidunt, commodo urna efficitur, laoreet mauris. Aliquam mollis neque a purus rhoncus facilisis. Quisque sed lorem finibus, eleifend nulla at, commodo nisl. Integer vitae eros purus. Nulla facilisi. Praesent nibh est, lobortis et lacinia quis, sollicitudin id mi. Praesent mattis nisl id mauris dignissim, in eleifend purus interdum. Duis arcu metus, dictum sed hendrerit vel, ullamcorper eget nisl. Fusce tempus elit a porta congue. Duis cursus sed justo quis commodo. Morbi nunc nisl, sagittis in semper viverra, hendrerit ut ex.
+<!------EDIT ABOUT ME ABOVE------>
+<p>
+
+<p>
+<!------EDIT ABOUT ME BELOW------>
+Nullam commodo feugiat aliquet. Integer tristique et velit quis venenatis. In placerat lacus sed urna porttitor, sit amet pharetra libero lobortis. Phasellus sit amet mauris eleifend, auctor velit ut, aliquam ante. Vivamus pharetra risus id ipsum sagittis, ac efficitur nunc commodo. Suspendisse dignissim erat non augue efficitur, vitae fermentum massa pretium. Quisque cursus dapibus tellus.
+<!------EDIT ABOUT ME ABOVE------>
+</p>
+            </div>
+        </section> 
+        <!----------------ABOUT ME SECTION END---------------->
+        
+    <!----------------SKILLS START---------------->
+    <section class="skills-content">
+        <div class="about-title">Skills</div> <!------Edit skill 1 title------>
+            <section class="skill-cont">
+                <section class="skill">
+                <section class="skill-set" style="width:var(--skill-percentage-one);"></section>
+                </section>
+            </section>
+            <p>Skill one</p>
+            
+            <section class="skill-cont">
+                <section class="skill">
+                <section class="skill-set" style="width:var(--skill-percentage-two);"></section>
+                </section>
+            </section>
+            <p>Skill two</p> <!------Edit skill 2 title------>
+            
+            <section class="skill-cont">
+                <section class="skill">
+                <section class="skill-set" style="width:var(--skill-percentage-three);"></section>
+                </section>
+            </section>
+            <p>Skill three</p> <!------Edit skill 3 title------>
+    </section>
+    <!----------------SKILLS END---------------->
+    
+    <!----------------IMAGE GALLERY START---------------->    
+    <section class="image-content">
+        <div class="about-title">Image Gallery</div>
+        <div class="image-section">
+            <div class="image-one">
+            <!----------EDIT FIRST IMAGE BETWEEN QUOTATION---------->  
+            <img src="https://static.tumblr.com/uh2chis/88yr7kxlm/jessica-felicio-qs9zx5uns14-unsplash__1_.png">
+            <!----------EDIT FIRST IMAGE BETWEEN QUOTATION---------->      
+            </div>
+            
+            <div class="image-two">
+            <!----------EDIT SECOND IMAGE BETWEEN QUOTATION---------->  
+            <img src="https://static.tumblr.com/uh2chis/88yr7kxlm/jessica-felicio-qs9zx5uns14-unsplash__1_.png">
+             <!----------EDIT SECOND IMAGE BETWEEN QUOTATION---------->     
+            </div>
+            <div class="image-three">
+            <!----------EDIT THIRD IMAGE BETWEEN QUOTATION---------->
+            <img src="https://static.tumblr.com/uh2chis/88yr7kxlm/jessica-felicio-qs9zx5uns14-unsplash__1_.png">
+            <!----------EDIT THIRD IMAGE BETWEEN QUOTATION---------->    
+            </div>
+            
+            <div class="image-four">
+            <!----------EDIT FOURTH IMAGE BETWEEN QUOTATION---------->
+            <img src="https://static.tumblr.com/uh2chis/88yr7kxlm/jessica-felicio-qs9zx5uns14-unsplash__1_.png">
+            <!----------EDIT FOURTH IMAGE BETWEEN QUOTATION---------->  
+            </div>
+            
+            <div class="image-five">
+            <!----------EDIT FIFTH IMAGE BETWEEN QUOTATION---------->
+            <img src="https://static.tumblr.com/uh2chis/88yr7kxlm/jessica-felicio-qs9zx5uns14-unsplash__1_.png">
+            <!----------EDIT FIFTH IMAGE BETWEEN QUOTATION---------->    
+            </div>
+            
+            <div class="image-six">
+            <!----------EDIT SIXTH IMAGE BETWEEN QUOTATION---------->
+            <img src="https://static.tumblr.com/uh2chis/88yr7kxlm/jessica-felicio-qs9zx5uns14-unsplash__1_.png">
+            <!----------EDIT SIXTH IMAGE BETWEEN QUOTATION---------->    
+            </div>
+            <div class="image-seven">
+            <!----------EDIT SEVENTH IMAGE BETWEEN QUOTATION---------->
+            <img src="https://static.tumblr.com/uh2chis/88yr7kxlm/jessica-felicio-qs9zx5uns14-unsplash__1_.png">
+            <!----------EDIT SEVENTH IMAGE BETWEEN QUOTATION---------->    
+            </div>
+            
+            <div class="image-eight">
+            <!----------EDIT EIGTH IMAGE BETWEEN QUOTATION---------->
+            <img src="https://static.tumblr.com/uh2chis/88yr7kxlm/jessica-felicio-qs9zx5uns14-unsplash__1_.png">
+            <!----------EDIT EIGTH IMAGE BETWEEN QUOTATION---------->   
+            </div>
+            
+            <div class="image-nine">
+            <!----------EDIT NINTH IMAGE BETWEEN QUOTATION---------->
+            <img src="https://static.tumblr.com/uh2chis/88yr7kxlm/jessica-felicio-qs9zx5uns14-unsplash__1_.png">
+            <!----------EDIT NINTH IMAGE BETWEEN QUOTATION---------->   
+            </div>
+            
+            <div class="image-ten">
+            <!----------EDIT TENTH IMAGE BETWEEN QUOTATION---------->
+            <img src="https://static.tumblr.com/uh2chis/88yr7kxlm/jessica-felicio-qs9zx5uns14-unsplash__1_.png">
+            <!----------EDIT TENTH IMAGE BETWEEN QUOTATION---------->    
+            </div>
+            
+        </div>
+    </section>
+    <!----------------IMAGE GALLERY END---------------->     
+    </article>
+    
+    
+    <nav class="nav-bar">
+    <div class="nav-portrait"><img src="{PortraitURL-96}"></div>
+        <div class="morelinks">
+            <a href="/" title="home"><i class="ph-house"></i></a> 
+            <a href="/ask" title="inbox"><i class="ph-question"></i></a> 
+            <a href="/archive" title="archive"><i class="ph-calendar"></i></a> 
+            <a href="/submit" title="submit"><i class="ph-envelope-simple"></i></a>
+            <!----------Links you can edit---------->
+            <a href="/" title="link 1 title here"><i class="ph-airplane-tilt"></i></a>
+            <a href="/" title="link 2 title here"><i class="ph-butterfly"></i></a>
+            <a href="/" title="link 3 title here"><i class="ph-cloud"></i></a>
+            <!----------Links you can edit---------->
+        </div>
+    </nav>
+</section>
+
+<footer id="bottom">
+<!-------------------DO NOT REMOVE THEME CREDIT!!!------------------->
+ <a href="https://sheathemes.tumblr.com" target="_blank" title="sheathemes"><i class="ph-copyright"></i></a>  
+<!-------------------DO NOT REMOVE THEME CREDIT!!!------------------->
+</footer>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+ 
+<!-----------Tooltips Script----------->
+<script src="https://unpkg.com/popper.js@1"></script> 
+<script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script> <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
+<!-----------Tooltips Script-----------> 
+
+<script>
+    $(document).ready(function(){
+        tippy('a[title]', { 
+            theme: 'custom', 
+            arrow: tippy.roundArrow, 
+            zIndex: 9999999999, 
+            placement: 'auto',
+            maxWidth: 300, 
+            content(reference) { 
+                const title = reference.getAttribute('title'); 
+                reference.removeAttribute('title'); return title; }, 
+            
+        });
+    });
+</script>
+</body>
+</html> <!---------------------------END--------------------------->
